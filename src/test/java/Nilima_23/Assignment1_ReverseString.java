@@ -13,9 +13,9 @@ o/p="yad tseb si yadoT"
 
 package Nilima_23;
 
-public class Assignment1 {
+public class Assignment1_ReverseString {
 	public static void main(String[] args) {
-		Assignment1 obj1= new Assignment1();
+		Assignment1_ReverseString obj1= new Assignment1_ReverseString();
 		obj1.reverseString("Nilima");
 		
 	}
