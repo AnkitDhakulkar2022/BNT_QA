@@ -5,7 +5,7 @@ package Sarika;
 public class Program_2_ReverseWord {
 
 	public static void main(String[] args) {
-		String str = "Today is my last day in collage";
+		String str = "Today is best day";
 		String[] newstr = str.split("\\s");
 		StringBuilder sb = new StringBuilder();
 		int lengths = newstr.length;
