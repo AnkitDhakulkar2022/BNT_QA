@@ -8,7 +8,7 @@ package Sarika;
 
 public class Program_3_WordIsPresent {
 
-	boolean wordispresent(String sentence, String word) {
+	public boolean wordispresent(String sentence, String word) {
 		boolean verify = sentence.contains(word);
 
 		return verify;
