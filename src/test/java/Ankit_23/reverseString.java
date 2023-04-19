@@ -1,9 +1,7 @@
 package Ankit_23;
 
 public class reverseString {
-
-	public static void main(String[] args) {
-		String s = "ankit";
+	public void reversestringmethod(String s) {
 		String rev = "";
 
 		for (int i = s.length() - 1; i >= 0; i--)
@@ -13,10 +11,11 @@ public class reverseString {
 
 		}
 		System.out.println(rev);
-
 	}
 
+	public static void main(String[] args) {
 
+		reverseString rs = new reverseString();
+		rs.reversestringmethod("Ankit");
 	}
-
-
+}
