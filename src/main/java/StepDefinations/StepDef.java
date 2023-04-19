@@ -1,5 +1,9 @@
 package StepDefinations;
 
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,16 +33,7 @@ public class StepDef extends ReusableClass {
 		String path = Constent.locators.QA_AUTOMATION;
 		// WebElement element = driver.findElement(By.xpath(path));
 		WebElement element = reusableClass.element(path);
-		// act.moveToElement(element).perform();
-		Mouseover(element);
 
-		String path1 = Constent.locators.PRACTICE_AUTOMATION;
-		// WebElement element1 = driver.findElement(By.xpath(path1));
-		WebElement element1 = reusableClass.element(path1);
-		// act.moveToElement(element1).perform();
-		Mouseover(element1);
-
-		String path2 = Constent.locators.REGISTRATION_FORM;
 		reusableClass.clickonElement(path2);
 
 	}
@@ -157,4 +152,58 @@ public class StepDef extends ReusableClass {
 		// reusableClass.CLoseBrowser();
 	}
 
+	@Given("^user is land on dashbord page move on Automation practice tab$")
+	public void user_click_on_Automation_practice_page() {
+		// WebElement
+		// Autolink=driver.findElement(By.xpath("//header/div[@id='site-header-inner']/div[@id='site-navigation-wrap']/nav[@id='site-navigation']/ul[@id='menu-main']/li[@id='menu-item-4131']/a[1]/span[1]"));
+		String path = Constent.locators.QA_AUTOMATION;
+		reusableClass.clickonElement(path);
+	}
+
+	@When("^user is land on dropdown click on Practice Page$")
+	public void click_on_Practice_Page() {
+		//WebElement Autoplink = driver.findElement(By.xpath(
+				//"//header/div[@id='site-header-inner']/div[@id='site-navigation-wrap']/nav[@id='site-navigation']/ul[@id='menu-main']/li[@id='menu-item-4131']/ul[1]/li[3]/a[1]"));
+		String autolink = Constent.locators.Practice_Automation;
+		reusableClass.clickonElement(autolink);
+	}
+
+	@When("^user is land move on dropdown Select Mulitiple windows$")
+	public void select_Mulitiple_windows() {
+		//WebElement Autoplinkwin = driver
+				//.findElement(By.xpath("//span[contains(text(),'Demo Site � Multiple Windows')]"));
+		String multiwindow = Constent.locators.Window_tab;
+		reusableClass.clickonElement(multiwindow);
+	}
+
+	@When("^user is land on Select on multiwindows browser$")
+	public void click_on_multiwindows() {
+
+		//WebElement Autoplinkwmulin = driver.findElement(By.xpath("//button[contains(text(),'New Browser Window')]"));
+		String Automultiwindow = Constent.locators.Multiple_windows;
+		reusableClass.clickonElement(Automultiwindow);
+
+	}
+
+	@Then("^user land on multi beowser window and come again on main page$")
+	public void get_window_handels() throws InterruptedException {
+
+		driver.findElement(By.xpath("//button[contains(text(),'New Browser Window')]")).click();
+
+		Set<String> windowsid = driver.getWindowHandles();
+
+		Iterator<String> itr = windowsid.iterator();
+
+		String parintid = itr.next();
+		String childid = itr.next();
+
+		driver.switchTo().window(childid);
+
+		driver.close();
+
+		driver.switchTo().window(parintid);
+
+		driver.findElement(By.xpath("//h1[contains(text(),'Multiple Windows')]")).click();
+
+	}
 }
