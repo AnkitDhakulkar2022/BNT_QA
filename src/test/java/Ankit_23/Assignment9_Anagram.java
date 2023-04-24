@@ -1,0 +1,29 @@
+//Program for to check string is anagram or not
+
+package Ankit_23;
+
+import java.util.Arrays;
+
+public class Assignment9_Anagram {
+	public static void main(String[] args) {
+		System.out.println(anagram("keep", "peek"));
+
+	}
+
+	public static boolean anagram(String s1, String s2) {
+		String str1 = s1.replaceAll("\\s", "");
+		String str2 = s2.replaceAll("\\s", "");
+
+		if (str1.length() != str2.length()) {
+			return false;
+		} else {
+			char ch1[] = str1.toLowerCase().toCharArray();
+			char ch2[] = str2.toLowerCase().toCharArray();
+
+			Arrays.sort(ch1);
+			Arrays.sort(ch2);
+			return Arrays.equals(ch1, ch2);
+		}
+
+	}
+}
